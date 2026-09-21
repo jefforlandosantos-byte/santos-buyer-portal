@@ -51,3 +51,4 @@ window.addStop=async(id,order)=>{let address=prompt('Dirección completa');if(!a
 (async()=>{try{let r=await db.auth.getSession();if(r.data.session)await enter(r.data.session.user)}catch(e){note('authMsg','Error de conexión: '+e.message,'err')}})();
 })();
 </script></body></html>
+<script src="calendar-ui.js"></script>
