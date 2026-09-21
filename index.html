@@ -50,5 +50,6 @@ window.publishTour=async id=>{let r=await db.from('tours').update({status:'ready
 window.addStop=async(id,order)=>{let address=prompt('Dirección completa');if(!address)return;let appointment_time=prompt('Hora en formato 10:30')||null,price=prompt('Precio solo números (opcional)')||null,beds=prompt('Recámaras (opcional)')||null,baths=prompt('Baños (opcional)')||null,sqft=prompt('Sqft (opcional)')||null;let r=await db.from('tour_stops').insert({tour_id:id,stop_order:order,address,appointment_time,price:price?Number(price):null,beds:beds?Number(beds):null,baths:baths?Number(baths):null,sqft:sqft?Number(sqft):null});if(r.error)alert(r.error.message);else await agentTours()};
 (async()=>{try{let r=await db.auth.getSession();if(r.data.session)await enter(r.data.session.user)}catch(e){note('authMsg','Error de conexión: '+e.message,'err')}})();
 })();
-</script></body></html>
+</script>
 <script src="calendar-ui.js"></script>
+</body></html>
