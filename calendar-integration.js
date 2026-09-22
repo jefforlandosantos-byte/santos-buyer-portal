@@ -46,7 +46,8 @@
     card.id='calendarCard'; card.className='card';
     card.innerHTML='<b>Google Calendar</b><div id="calendarStatus" class="muted" style="margin:6px 0 10px">Comprobando conexión…</div><button id="connectCalendar" class="btn outline">Conectar Google Calendar</button>';
     h2.insertAdjacentElement('afterend',card);
-    q('connectCalendar').addEventListener('click',()=>{location.href='/api/google-calendar-connect'});
+    // Use the canonical OAuth route. It sets the state cookie that the callback validates.
+    q('connectCalendar').addEventListener('click',()=>{location.href='/api/google/connect';});
     loadBusy();
   }
 
